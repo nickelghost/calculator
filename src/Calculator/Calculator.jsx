@@ -35,9 +35,16 @@ class Calculator extends Component {
     const operators = input.split(/[0-9.]/).filter((el) => el.length !== 0);
     let currentNum = Number(nums.splice(0, 1));
 
-    for (let i = 0; i < nums.length; i++) {
-      const nextNum = Number(nums[i]);
-      const operator = operators[i];
+    for (let i = 0, opIdx = 0; i < nums.length; i++, opIdx++) {
+      let nextNum = Number(nums[i]);
+      let operator = (operators[opIdx] || "").replace(/-$/, "");
+
+      if (nums[i] === "") {
+        // Empty chunk: a '-' was used as a unary sign; consume the next number as negative
+        i++;
+        nextNum = -Number(nums[i]);
+      }
+
       if (operator === "+") {
         currentNum += nextNum;
       } else if (operator === "-") {
