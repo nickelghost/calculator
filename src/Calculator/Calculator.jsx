@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import { Component } from "react";
 
 import "./Calculator.css";
 
@@ -10,7 +10,7 @@ class Calculator extends Component {
     };
   }
 
-  getAllowedKeys = () => [
+  allowedKeys =  [
     "1",
     "2",
     "3",
@@ -53,8 +53,8 @@ class Calculator extends Component {
     });
   };
 
-  handleKeyPress = (e) => {
-    if (!this.getAllowedKeys().includes(e.key)) {
+  handleKeyDown = (e) => {
+    if (!this.allowedKeys.includes(e.key)) {
       e.preventDefault();
     }
     if (e.key === "Enter") {
@@ -92,7 +92,7 @@ class Calculator extends Component {
       <div className="Calculator">
         <input
           className="Calculator-input"
-          onKeyDown={this.handleKeyPress}
+          onKeyDown={this.handleKeyDown}
           onChange={this.handleChange}
           value={this.state.input}
         />
