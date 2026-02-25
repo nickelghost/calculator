@@ -1,9 +1,23 @@
 # calculator
 
-A small calculator website made with React.js
+A small calculator web app built with React. Originally created on 4 April 2018 as an early portfolio project, _only_ kept alive as an experiment to see how long I can maintain it for.
 
-Run `npm run dev` to initialise it in development, or `npm run build` to get the production files.
+## Development
 
-## Purpose
+```sh
+npm install
+npm run dev
+```
 
-This is one of my early, quick portfolio projects. I'm still keeping it around to see just how long I can maintain a project for after creating it on 4 April 2018. I'm updating this readme just after the 6th anniversary.
+## Production build
+
+```sh
+npm run build   # output goes to dist/
+```
+
+To run via Docker (served by Caddy):
+
+```sh
+docker build -t calculator .
+docker run -p 8080:80 calculator
+```
