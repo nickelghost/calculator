@@ -2,9 +2,11 @@ FROM node:20-alpine as builder
 
 WORKDIR /usr/local/src/calculator
 
+RUN npm i -g pnpm
+
 COPY . .
 
-RUN npm i && npm run build
+RUN pnpm i && pnpm run build
 
 FROM caddy:2-alpine
 

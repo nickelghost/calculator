@@ -5,14 +5,14 @@ A small calculator web app built with React. Originally created on 4 April 2018 
 ## Development
 
 ```sh
-npm install
-npm run dev
+pnpm install
+pnpm run dev
 ```
 
 ## Production build
 
 ```sh
-npm run build   # output goes to dist/
+pnpm run build   # output goes to dist/
 ```
 
 To run via Docker (served by Caddy):
